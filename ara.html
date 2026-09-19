@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>صفحة الدرس</title>
+    <!-- icon -->
+<link rel="icon" type="image/jpeg" href="ara.jpeg">
+
+    <!-- Aref Ruqaa -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body,
+        input,
+        textarea,
+        button {
+            font-family: "Aref Ruqaa", serif;
+        }
+
+        .published-text {
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .sidebar-link {
+            transition: 0.2s ease;
+        }
+
+        .sidebar-link.active {
+            color: #f0f6fc;
+            background: #161b22;
+            border-right: 3px solid #238636;
+        }
+
+        .side-action {
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.2s ease;
+        }
+
+        .sidebar-item:hover .side-action,
+        .sidebar-item.active .side-action {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .side-action button {
+            transition: 0.2s ease;
+        }
+
+        .side-action button:hover {
+            background: #30363d;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-[#0d1117] text-[#f0f6fc]">
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+    <aside
+        class="fixed right-0 top-0 hidden h-screen w-72 border-l border-[#30363d] bg-[#0d1117] p-5 lg:block"
+    >
+
+        <div class="mb-8">
+            <h2 class="mb-2 text-xl font-bold">
+                محتويات الدرس
+            </h2>
+
+            <div class="h-px bg-[#30363d]"></div>
+        </div>
+
+
+        <!-- =========================
+             CONTENT LINKS
+        ========================== -->
+        <nav class="space-y-1">
+
+            <!-- العنوان -->
+            <div
+                class="sidebar-item group rounded-lg"
+                data-sidebar-item="title"
+            >
+                <div class="flex items-center justify-between gap-2">
+
+                    <a
+                        href="#title"
+                        class="sidebar-link flex-1 rounded-lg border-r-2 border-transparent px-3 py-2 text-right text-[#8b949e]"
+                        data-target="title"
+                    >
+                        العنوان
+                    </a>
+
+                    <div class="side-action flex shrink-0 gap-1">
+
+                        <button
+                            type="button"
+                            class="publish-section rounded-md px-2 py-1 text-xs text-[#8b949e]"
+                            data-target="title"
+                        >
+                            تثبيت
+                        </button>
+
+                        <button
+                            type="button"
+                            class="edit-section rounded-md px-2 py-1 text-xs text-[#8b949e]"
+                            data-target="title"
+                        >
+                            تعديل
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- المقدمة -->
+            <div
+                class="sidebar-item group rounded-lg"
+                data-sidebar-item="introduction"
+            >
+                <div class="flex items-center justify-between gap-2">
+
+                    <a
+                        href="#introduction"
+                        class="sidebar-link flex-1 rounded-lg border-r-2 border-transparent px-3 py-2 text-right text-[#8b949e]"
+                        data-target="introduction"
+                    >
+                        المقدمة
+                    </a>
+
+                    <div class="side-action flex shrink-0 gap-1">
+
+                        <button
+                            type="button"
+                            class="publish-section rounded-md px-2 py-1 text-xs text-[#8b949e]"
+                            data-target="introduction"
+                        >
+                            تثبيت
+                        </button>
+
+                        <button
+                            type="button"
+                            class="edit-section rounded-md px-2 py-1 text-xs text-[#8b949e]"
+                            data-target="introduction"
+                        >
+                            تعديل
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- الشرح -->
+            <div
+                class="sidebar-item group rounded-lg"
+                data-sidebar-item="explanation"
+            >
+                <div class="flex items-center justify-between gap-2">
+
+                    <a
+                        href="#explanation"
+                        class="sidebar-link flex-1 rounded-lg border-r-2 border-transparent px-3 py-2 text-right text-[#8b949e]"
+                        data-target="explanation"
+                    >
+                        الشرح
+                    </a>
+
+                    <div class="side-action flex shrink-0 gap-1">
+
+                        <button
+                            type="button"
+                            class="publish-section rounded-md px-2 py-1 text-xs text-[#8b949e]"
+                            data-target="explanation"
+                        >
+                            تثبيت
+                        </button>
+
+                        <button
+                            type="button"
+                            class="edit-section rounded-md px-2 py-1 text-xs text-[#8b949e]"
+                            data-target="explanation"
+                        >
+                            تعديل
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- الأمثلة -->
+            <div
+                class="sidebar-item group rounded-lg"
+                data-sidebar-item="examples"
+            >
+                <div class="flex items-center justify-between gap-2">
+
+                    <a
+                        href="#examples"
+                        class="sidebar-link flex-1 rounded-lg border-r-2 border-transparent px-3 py-2 text-right text-[#8b949e]"
+                        data-target="examples"
+                    >
+                        الأمثلة
+                    </a>
+
+                    <div class="side-action flex shrink-0 gap-1">
+
+                        <button
+                            type="button"
+                            class="publish-section rounded-md px-2 py-1 text-xs text-[#8b949e]"
+                            data-target="examples"
+                        >
+                            تثبيت
+                        </button>
+
+                        <button
+                            type="button"
+                            class="edit-section rounded-md px-2 py-1 text-xs text-[#8b949e]"
+                            data-target="examples"
+                        >
+                            تعديل
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- الشواهد -->
+            <div
+                class="sidebar-item group rounded-lg"
+                data-sidebar-item="evidence"
+            >
+                <div class="flex items-center justify-between gap-2">
+
+                    <a
+                        href="#evidence"
+                        class="sidebar-link flex-1 rounded-lg border-r-2 border-transparent px-3 py-2 text-right text-[#8b949e]"
+                        data-target="evidence"
+                    >
+                        الشواهد
+                    </a>
+
+                    <div class="side-action flex shrink-0 gap-1">
+
+                        <button
+                            type="button"
+                            class="publish-section rounded-md px-2 py-1 text-xs text-[#8b949e]"
+                            data-target="evidence"
+                        >
+                            تثبيت
+                        </button>
+
+                        <button
+                            type="button"
+                            class="edit-section rounded-md px-2 py-1 text-xs text-[#8b949e]"
+                            data-target="evidence"
+                        >
+                            تعديل
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ملاحظات مهمة -->
+            <div
+                class="sidebar-item group rounded-lg"
+                data-sidebar-item="important"
+            >
+                <div class="flex items-center justify-between gap-2">
+
+                    <a
+                        href="#important"
+                        class="sidebar-link flex-1 rounded-lg border-r-2 border-transparent px-3 py-2 text-right text-[#8b949e]"
+                        data-target="important"
+                    >
+                        ملاحظات مهمة
+                    </a>
+
+                    <div class="side-action flex shrink-0 gap-1">
+
+                        <button
+                            type="button"
+                            class="publish-section rounded-md px-2 py-1 text-xs text-[#8b949e]"
+                            data-target="important"
+                        >
+                            تثبيت
+                        </button>
+
+                        <button
+                            type="button"
+                            class="edit-section rounded-md px-2 py-1 text-xs text-[#8b949e]"
+                            data-target="important"
+                        >
+                            تعديل
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- القاعدة -->
+            <div
+                class="sidebar-item group rounded-lg"
+                data-sidebar-item="rule"
+            >
+                <div class="flex items-center justify-between gap-2">
+
+                    <a
+                        href="#rule"
+                        class="sidebar-link flex-1 rounded-lg border-r-2 border-transparent px-3 py-2 text-right text-[#8b949e]"
+                        data-target="rule"
+                    >
+                        القاعدة
+                    </a>
+
+                    <div class="side-action flex shrink-0 gap-1">
+
+                        <button
+                            type="button"
+                            class="publish-section rounded-md px-2 py-1 text-xs text-[#8b949e]"
+                            data-target="rule"
+                        >
+                            تثبيت
+                        </button>
+
+                        <button
+                            type="button"
+                            class="edit-section rounded-md px-2 py-1 text-xs text-[#8b949e]"
+                            data-target="rule"
+                        >
+                            تعديل
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- الملخص -->
+            <div
+                class="sidebar-item group rounded-lg"
+                data-sidebar-item="summary"
+            >
+                <div class="flex items-center justify-between gap-2">
+
+                    <a
+                        href="#summary"
+                        class="sidebar-link flex-1 rounded-lg border-r-2 border-transparent px-3 py-2 text-right text-[#8b949e]"
+                        data-target="summary"
+                    >
+                        الملخص
+                    </a>
+
+                    <div class="side-action flex shrink-0 gap-1">
+
+                        <button
+                            type="button"
+                            class="publish-section rounded-md px-2 py-1 text-xs text-[#8b949e]"
+                            data-target="summary"
+                        >
+                            تثبيت
+                        </button>
+
+                        <button
+                            type="button"
+                            class="edit-section rounded-md px-2 py-1 text-xs text-[#8b949e]"
+                            data-target="summary"
+                        >
+                            تعديل
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+        </nav>
+
+
+        <!-- =========================
+             GENERAL CONTROLS
+        ========================== -->
+        <div class="mt-8 border-t border-[#30363d] pt-5">
+
+            <p class="mb-3 text-sm text-[#8b949e]">
+                التحكم العام
+            </p>
+
+            <div class="space-y-2">
+
+                <button
+                    id="publishButton"
+                    type="button"
+                    class="w-full rounded-lg border border-[#30363d] bg-[#238636] px-4 py-2 text-[#f0f6fc] transition hover:border-[#238636]"
+                >
+                    تثبيت النصوص
+                </button>
+
+                <button
+                    id="editButton"
+                    type="button"
+                    class="w-full rounded-lg border border-[#30363d] bg-[#161b22] px-4 py-2 text-[#f0f6fc] transition hover:border-[#238636]"
+                >
+                    تعديل النصوص
+                </button>
+
+            </div>
+
+            <p
+                id="statusBox"
+                class="mt-3 text-center text-sm text-[#8b949e]"
+            >
+                اختر الحقل الذي تريد العمل عليه
+            </p>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+    <main class="mx-auto max-w-5xl px-6 py-12 lg:mr-72">
+
+        <!-- TITLE -->
+        <section
+            id="title"
+            class="article-section mb-24 scroll-mt-10"
+        >
+
+            <span class="mb-4 block text-sm text-[#238636]">
+                01
+            </span>
+
+            <input
+                class="editable-input w-full rounded-xl border border-[#30363d] bg-[#161b22] p-5 text-5xl font-bold text-[#f0f6fc] outline-none focus:border-[#238636]"
+                data-section="title"
+                data-type="title"
+                placeholder="اكتب عنوان الدرس هنا"
+            >
+
+            <textarea
+                class="editable-input mt-6 w-full resize-none rounded-xl border border-[#30363d] bg-[#161b22] p-5 text-xl leading-9 text-[#8b949e] outline-none focus:border-[#238636]"
+                data-section="title"
+                data-field="description"
+                data-type="description"
+                rows="3"
+                placeholder="اكتب وصفًا مختصرًا للدرس هنا"
+            ></textarea>
+
+        </section>
+
+
+        <!-- INTRODUCTION -->
+        <section
+            id="introduction"
+            class="article-section mb-24 scroll-mt-10"
+        >
+
+            <span class="mb-4 block text-sm text-[#238636]">
+                02
+            </span>
+
+            <h2 class="mb-6 text-3xl font-bold">
+                المقدمة
+            </h2>
+
+            <textarea
+                class="editable-input w-full resize-none rounded-xl border border-[#30363d] bg-[#161b22] p-5 text-lg leading-9 text-[#f0f6fc] outline-none focus:border-[#238636]"
+                data-section="introduction"
+                data-type="text"
+                rows="6"
+                placeholder="اكتب المقدمة هنا"
+            ></textarea>
+
+        </section>
+
+
+        <!-- EXPLANATION -->
+        <section
+            id="explanation"
+            class="article-section mb-24 scroll-mt-10"
+        >
+
+            <span class="mb-4 block text-sm text-[#238636]">
+                03
+            </span>
+
+            <h2 class="mb-6 text-3xl font-bold">
+                الشرح
+            </h2>
+
+            <textarea
+                class="editable-input w-full resize-none rounded-xl border border-[#30363d] bg-[#161b22] p-5 text-lg leading-9 text-[#f0f6fc] outline-none focus:border-[#238636]"
+                data-section="explanation"
+                data-type="text"
+                rows="10"
+                placeholder="اكتب شرح الدرس هنا"
+            ></textarea>
+
+        </section>
+
+
+        <!-- EXAMPLES -->
+        <section
+            id="examples"
+            class="article-section mb-24 scroll-mt-10"
+        >
+
+            <span class="mb-4 block text-sm text-[#238636]">
+                04
+            </span>
+
+            <h2 class="mb-8 text-3xl font-bold">
+                الأمثلة
+            </h2>
+
+            <div class="space-y-6">
+
+                <div class="rounded-xl border border-[#30363d] bg-[#161b22] p-6">
+
+                    <input
+                        class="editable-input w-full rounded-lg border border-[#30363d] bg-[#0d1117] p-4 text-xl text-[#f0f6fc] outline-none focus:border-[#238636]"
+                        data-section="examples"
+                        data-type="heading"
+                        placeholder="عنوان المثال الأول"
+                    >
+
+                    <textarea
+                        class="editable-input mt-4 w-full resize-none rounded-lg border border-[#30363d] bg-[#0d1117] p-4 leading-9 text-[#8b949e] outline-none focus:border-[#238636]"
+                        data-section="examples"
+                        data-type="text"
+                        rows="4"
+                        placeholder="اكتب المثال الأول هنا"
+                    ></textarea>
+
+                </div>
+
+
+                <div class="rounded-xl border border-[#30363d] bg-[#161b22] p-6">
+
+                    <input
+                        class="editable-input w-full rounded-lg border border-[#30363d] bg-[#0d1117] p-4 text-xl text-[#f0f6fc] outline-none focus:border-[#238636]"
+                        data-section="examples"
+                        data-type="heading"
+                        placeholder="عنوان المثال الثاني"
+                    >
+
+                    <textarea
+                        class="editable-input mt-4 w-full resize-none rounded-lg border border-[#30363d] bg-[#0d1117] p-4 leading-9 text-[#8b949e] outline-none focus:border-[#238636]"
+                        data-section="examples"
+                        data-type="text"
+                        rows="4"
+                        placeholder="اكتب المثال الثاني هنا"
+                    ></textarea>
+
+                </div>
+
+
+                <div class="rounded-xl border border-[#30363d] bg-[#161b22] p-6">
+
+                    <input
+                        class="editable-input w-full rounded-lg border border-[#30363d] bg-[#0d1117] p-4 text-xl text-[#f0f6fc] outline-none focus:border-[#238636]"
+                        data-section="examples"
+                        data-type="heading"
+                        placeholder="عنوان المثال الثالث"
+                    >
+
+                    <textarea
+                        class="editable-input mt-4 w-full resize-none rounded-lg border border-[#30363d] bg-[#0d1117] p-4 leading-9 text-[#8b949e] outline-none focus:border-[#238636]"
+                        data-section="examples"
+                        data-type="text"
+                        rows="4"
+                        placeholder="اكتب المثال الثالث هنا"
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- EVIDENCE -->
+        <section
+            id="evidence"
+            class="article-section mb-24 scroll-mt-10"
+        >
+
+            <span class="mb-4 block text-sm text-[#238636]">
+                05
+            </span>
+
+            <h2 class="mb-6 text-3xl font-bold">
+                الشواهد
+            </h2>
+
+            <textarea
+                class="editable-input w-full resize-none rounded-xl border border-[#30363d] bg-[#161b22] p-5 text-lg leading-10 text-[#f0f6fc] outline-none focus:border-[#238636]"
+                data-section="evidence"
+                data-type="evidence"
+                rows="6"
+                placeholder="اكتب الشاهد هنا"
+            ></textarea>
+
+            <textarea
+                class="editable-input mt-6 w-full resize-none rounded-xl border border-[#30363d] bg-[#161b22] p-5 text-lg leading-10 text-[#f0f6fc] outline-none focus:border-[#238636]"
+                data-section="evidence"
+                data-type="evidence"
+                rows="5"
+                placeholder="اكتب شاهد ألفية ابن مالك هنا"
+            ></textarea>
+
+        </section>
+
+
+        <!-- IMPORTANT -->
+        <section
+            id="important"
+            class="article-section mb-24 scroll-mt-10"
+        >
+
+            <span class="mb-4 block text-sm text-[#238636]">
+                06
+            </span>
+
+            <h2 class="mb-6 text-3xl font-bold">
+                ملاحظات مهمة
+            </h2>
+
+            <div class="space-y-4">
+
+                <textarea
+                    class="editable-input w-full resize-none rounded-xl border border-[#30363d] bg-[#161b22] p-5 leading-9 text-[#f0f6fc] outline-none focus:border-[#238636]"
+                    data-section="important"
+                    data-type="text"
+                    rows="3"
+                    placeholder="الملاحظة الأولى"
+                ></textarea>
+
+                <textarea
+                    class="editable-input w-full resize-none rounded-xl border border-[#30363d] bg-[#161b22] p-5 leading-9 text-[#f0f6fc] outline-none focus:border-[#238636]"
+                    data-section="important"
+                    data-type="text"
+                    rows="3"
+                    placeholder="الملاحظة الثانية"
+                ></textarea>
+
+                <textarea
+                    class="editable-input w-full resize-none rounded-xl border border-[#30363d] bg-[#161b22] p-5 leading-9 text-[#f0f6fc] outline-none focus:border-[#238636]"
+                    data-section="important"
+                    data-type="text"
+                    rows="3"
+                    placeholder="الملاحظة الثالثة"
+                ></textarea>
+
+            </div>
+
+        </section>
+
+
+        <!-- RULE -->
+        <section
+            id="rule"
+            class="article-section mb-24 scroll-mt-10"
+        >
+
+            <span class="mb-4 block text-sm text-[#238636]">
+                07
+            </span>
+
+            <h2 class="mb-6 text-3xl font-bold">
+                القاعدة
+            </h2>
+
+            <textarea
+                class="editable-input w-full resize-none rounded-xl border border-[#30363d] bg-[#161b22] p-6 text-xl font-bold leading-10 text-[#f0f6fc] outline-none focus:border-[#238636]"
+                data-section="rule"
+                data-type="rule"
+                rows="6"
+                placeholder="اكتب قاعدة الدرس هنا"
+            ></textarea>
+
+        </section>
+
+
+        <!-- SUMMARY -->
+        <section
+            id="summary"
+            class="article-section mb-24 scroll-mt-10"
+        >
+
+            <span class="mb-4 block text-sm text-[#238636]">
+                08
+            </span>
+
+            <h2 class="mb-6 text-3xl font-bold">
+                الملخص
+            </h2>
+
+            <textarea
+                class="editable-input w-full resize-none rounded-xl border border-[#30363d] bg-[#161b22] p-5 text-lg leading-9 text-[#f0f6fc] outline-none focus:border-[#238636]"
+                data-section="summary"
+                data-type="summary"
+                rows="8"
+                placeholder="اكتب ملخص الدرس هنا"
+            ></textarea>
+
+        </section>
+
+    </main>
+
+
+    <script src="aja.js"></script>
+
+</body>
+
+</html>
+<!--
+
+  -- Background --
+  <div class="bg-[#0d1117]">
+
+  -- Card / Navbar --
+  <div class="bg-[#161b22]">
+
+  -- Border --
+  <div class="border border-[#30363d]">
+
+  -- Main Text --
+  <p class="text-[#f0f6fc]">
+
+  -- Secondary Text --
+  <p class="text-[#8b949e]">
+
+  -- Green --
+  <div class="bg-[#238636]">
+
+  -- Green Hover --
+  <div class="bg-[#238636] hover:bg-[#2ea043]">
+
+  -- Link --
+  <a class="text-[#58a6ff]">
+
+  -- Success --
+  <p class="text-[#3fb950]">
+
+  -- Warning --
+  <p class="text-[#d29922]">
+
+  -- Error --
+  <p class="text-[#f85149]">
+
+  -- Purple --
+  <p class="text-[#a371f7]">
+
+-----------------
+-- Hover Usage --
+-----------------
+
+  -- Background Hover --
+  <div class="bg-[#0d1117] hover:bg-[#161b22]">
+
+  -- Text Hover --
+  <p class="text-[#8b949e] hover:text-[#f0f6fc]">
+
+  -- Border Hover --
+  <div class="border border-[#30363d] hover:border-[#58a6ff]">
+
+  -- Green Button Hover --
+  <button class="bg-[#238636] hover:bg-[#2ea043]">
+
+  -- Link Hover --
+  <a class="text-[#58a6ff] hover:text-[#79c0ff]">
+
+  -- Purple Hover --
+  <div class="bg-[#a371f7] hover:bg-[#bc8cff]">
+
+------------------------
+-- Hover + Transition --
+------------------------
+
+  -- Smooth Background Hover --
+  <div class="bg-[#238636] hover:bg-[#2ea043] transition">
+
+  -- Smooth Text Hover --
+  <a class="text-[#8b949e] hover:text-[#f0f6fc] transition">
+
+  -- Smooth Border Hover --
+  <div class="border border-[#30363d] hover:border-[#58a6ff] transition">
+
+-->
